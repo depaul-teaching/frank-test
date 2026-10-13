@@ -15,9 +15,14 @@ on:
       - ".github/workflows/order-service.yml"
   workflow_dispatch:
 
+# Requirement 7: Default workflow permissions set to least privilege
+permissions:
+  contents: read
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    # If this job were publishing packages, you would place `permissions: packages: write` here.
     steps:
       - uses: actions/checkout@v4
 
