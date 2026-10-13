@@ -1,0 +1,6 @@
+﻿fastapi
+pytest
+httpx
+starlette
+requests
+
