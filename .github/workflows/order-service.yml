@@ -44,6 +44,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build step placeholder
-        run: echo "Build and push placeholder - tests passed!"
+
+      - name: Docker Metadata Action
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/depaul-teaching/frank-test/order-service
+          tags: |
+            type=sha,prefix=sha-
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
 
